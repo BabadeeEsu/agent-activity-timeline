@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Community proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+</style>
+</head>
+<body>
+
+
+<div style="box-sizing:border-box;max-width:960px;margin:0 auto;padding:64px 32px;background:#FFFFFF;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:15px;line-height:1.6;color:#14181F">
+
+<div style="font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#3730A3">Community proposal · Draft for feedback</div>
+<h1 style="margin:6px 0 0;font-size:38px;line-height:1.15;font-weight:700;letter-spacing:-0.025em">Transparent Agent Activity Timeline</h1>
+<p style="margin:10px 0 0;font-size:18px;line-height:1.5;color:#374151">Helping people understand what their agents are doing, step in when it matters, and trust what comes back.</p>
+
+<div style="margin-top:22px;padding:14px 18px;border-radius:12px;background:#FEF3C7;border:1px solid #F0D58A;color:#7A3410;font-size:14px;line-height:1.55">
+<strong style="font-weight:700">Proposal only. Not approved, not implemented.</strong> No Ziki repository, documentation or design file was available while preparing this, so nothing here claims to exist in Ziki today. Items tagged <span style="display:inline-block;padding:0 8px;border-radius:999px;background:#FFFFFF;color:#92400E;font-size:12px;font-weight:700;line-height:20px">Assumption</span> need confirming. Items tagged <span style="display:inline-block;padding:0 8px;border-radius:999px;background:#E0E7FF;color:#3730A3;font-size:12px;font-weight:700;line-height:20px">Proposed</span> are new behaviour being suggested.
+</div>
+
+<h2 style="margin:40px 0 10px;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-0.01em">1 · The problem</h2>
+<p style="margin:0 0 10px;color:#374151">From the brief, the gaps this proposal targets:</p>
+<ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px">
+<li>Once work is handed to an agent, it’s hard to tell what the agent is doing right now, whether it’s stuck, or how far along it is.</li>
+<li>When an agent needs a decision, the person often lacks the context to make it quickly: what is being asked, why, how risky it is and how soon.</li>
+<li>“Done” blends two different claims: the agent says it’s finished, and the outcome is actually true. People can’t tell which one they’re being given.</li>
+<li>Raw technical logs are the usual fallback, but most people can’t, and shouldn’t have to, read them to build trust.</li>
+</ul>
+
+<h2 style="margin:36px 0 10px;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-0.01em">2 · The proposed solution</h2>
+<p style="margin:0;color:#14181F">A <strong style="font-weight:700">Timeline tab on the task page</strong> <span style="display:inline-block;padding:0 8px;border-radius:999px;background:#FEF3C7;color:#92400E;font-size:12px;font-weight:700;line-height:20px">Assumption: placement</span>: a chronological, plain-language record of what the agent did, found, asked and changed. Every entry carries two separate labels. A <strong style="font-weight:700">status</strong> says what is happening (Working, Done, Needs you, Failed, Skipped, Undone). A <strong style="font-weight:700">trust label</strong> says who has confirmed it (Verified by Ziki, Reported by the agent, Ziki is checking, Didn’t hold up). Questions, answers and approvals sit in the same stream, so the whole story lives in one place.</p>
+
+<h2 style="margin:36px 0 10px;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-0.01em">3 · How human–agent interaction improves</h2>
+<ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px">
+<li style="display:flex;gap:14px"><span style="flex:0 0 28px;width:28px;height:28px;border-radius:8px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">1</span><div><strong style="font-weight:700">See the present at a glance.</strong> The current activity is pinned and highlighted, with a one-line summary and a plain statement of whether anything on the live site has changed.</div></li>
+<li style="display:flex;gap:14px"><span style="flex:0 0 28px;width:28px;height:28px;border-radius:8px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">2</span><div><strong style="font-weight:700">Inspect without reading logs.</strong> Key moments by default, with everything one toggle away. Expand an entry for findings, evidence links and check results. Technical detail sits one click further.</div></li>
+<li style="display:flex;gap:14px"><span style="flex:0 0 28px;width:28px;height:28px;border-radius:8px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">3</span><div><strong style="font-weight:700">Know what is confirmed.</strong> Verified by Ziki means Ziki checked the result itself. Reported means only the agent says so. The two never look alike, and a dashed outline never carries a tick.</div></li>
+<li style="display:flex;gap:14px"><span style="flex:0 0 28px;width:28px;height:28px;border-radius:8px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">4</span><div><strong style="font-weight:700">Ask and decide in context.</strong> An agent pauses with a question card showing the decision, the reason, what will change, whether it can be undone and how urgent it is. The person can approve, reject, add a note or ask back. The answer and the agent’s next steps appear in the same timeline.</div></li>
+<li style="display:flex;gap:14px"><span style="flex:0 0 28px;width:28px;height:28px;border-radius:8px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">5</span><div><strong style="font-weight:700">Finish honestly.</strong> Completion shows what the agent reported beside what Ziki verified, lists outstanding issues, and keeps the evidence one click away.</div></li>
+</ol>
+
+<h2 style="margin:36px 0 10px;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-0.01em">4 · Main screens and user journey</h2>
+<p style="margin:0 0 10px;color:#374151">The example follows one sample task, fixing a website form that stopped delivering leads. All names and numbers are invented.</p>
+<ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;border:1px solid #E3E7EC;border-radius:12px">
+<li style="display:flex;gap:14px;padding:12px 16px"><span style="flex:0 0 120px;font-weight:700">1 · Open</span><span>The person opens the task’s Timeline tab and sees the agent working, a note that the live site is untouched, and how much is confirmed.</span></li>
+<li style="display:flex;gap:14px;padding:12px 16px;border-top:1px solid #E3E7EC"><span style="flex:0 0 120px;font-weight:700">2 · Inspect</span><span>They expand one step to see plain-language findings, a chart, evidence links and a “How sure are we?” ledger.</span></li>
+<li style="display:flex;gap:14px;padding:12px 16px;border-top:1px solid #E3E7EC"><span style="flex:0 0 120px;font-weight:700">3 · Asked</span><span>A banner announces the agent’s question. The card shows the decision, reason, urgency, before and after, and the controls.</span></li>
+<li style="display:flex;gap:14px;padding:12px 16px;border-top:1px solid #E3E7EC"><span style="flex:0 0 120px;font-weight:700">4 · Respond</span><span>The approval and note appear in the timeline, the agent acknowledges, and its work shows in small visible steps.</span></li>
+<li style="display:flex;gap:14px;padding:12px 16px;border-top:1px solid #E3E7EC"><span style="flex:0 0 120px;font-weight:700">5 · Verified</span><span>The final result shows the agent’s report beside Ziki’s verification, the two open items and the evidence.</span></li>
+</ol>
+<p style="margin:10px 0 0;color:#374151">A sixth board covers every state an activity, trust label and question can be in, including failed, skipped, undone, rejected, withdrawn and expired.</p>
+
+<h2 style="margin:36px 0 10px;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-0.01em">5 · Expected benefits</h2>
+<ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px">
+<li>Faster, better-informed decisions on agent questions.</li>
+<li>Fewer “what is it doing?” check-ins, and less need to read logs.</li>
+<li>Trust that is earned and calibrated, because people can see exactly which claims were verified.</li>
+<li>Fewer surprises on live systems: changes are previewed, approved and reversible.</li>
+<li>A record teammates can follow without a handover call.</li>
+</ul>
+<p style="margin:10px 0 0;color:#374151">Suggested ways to measure it, not targets: time from question to answer, how often an approval needs a follow-up question, tasks reopened after being marked done, and how often people expand details.</p>
+
+<h2 style="margin:36px 0 10px;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-0.01em">6 · Assumptions to confirm</h2>
+<ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px">
+<li style="display:flex;gap:10px;align-items:flex-start"><span style="flex:0 0 auto;padding:0 8px;border-radius:999px;background:#FEF3C7;color:#92400E;font-size:12px;font-weight:700;line-height:22px">A1</span><span>Ziki has a task page, and agents are assigned to tasks there.</span></li>
+<li style="display:flex;gap:10px;align-items:flex-start"><span style="flex:0 0 auto;padding:0 8px;border-radius:999px;background:#FEF3C7;color:#92400E;font-size:12px;font-weight:700;line-height:22px">A2</span><span>Agents can report structured activity (what they are doing, findings, evidence, questions), not only raw logs.</span></li>
+<li style="display:flex;gap:10px;align-items:flex-start"><span style="flex:0 0 auto;padding:0 8px;border-radius:999px;background:#FEF3C7;color:#92400E;font-size:12px;font-weight:700;line-height:22px">A3</span><span>Ziki can independently check some outcomes, such as reading a setting back or looking for an email. Verification is per outcome, never universal.</span></li>
+<li style="display:flex;gap:10px;align-items:flex-start"><span style="flex:0 0 auto;padding:0 8px;border-radius:999px;background:#FEF3C7;color:#92400E;font-size:12px;font-weight:700;line-height:22px">A4</span><span>Requests from agents already reach people through some inbox or notification, which would link into the timeline.</span></li>
+<li style="display:flex;gap:10px;align-items:flex-start"><span style="flex:0 0 auto;padding:0 8px;border-radius:999px;background:#FEF3C7;color:#92400E;font-size:12px;font-weight:700;line-height:22px">A5</span><span>The colours, type and components in the mockups are a stand-in, to be replaced with Ziki’s own.</span></li>
+</ul>
+
+<h2 style="margin:36px 0 10px;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-0.01em">7 · Important edge cases</h2>
+<ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px">
+<li><strong style="font-weight:700">Long tasks.</strong> Hundreds of events need grouping, filters and summary rows such as “6 earlier steps”.</li>
+<li><strong style="font-weight:700">Several agents on one task.</strong> Every entry names its actor, and the timeline can be filtered by agent.</li>
+<li><strong style="font-weight:700">Plans that change.</strong> Superseded steps stay visible with a reason, never silently rewritten.</li>
+<li><strong style="font-weight:700">A question when no one is around.</strong> Reminders, a delegate, and expiry that stops the agent instead of approving by silence.</li>
+<li><strong style="font-weight:700">Two people answering at once.</strong> First answer wins, and the other person sees who decided and when.</li>
+<li><strong style="font-weight:700">Rejection.</strong> The task can’t become plain “Done”. The agent offers a manual path or stops with open items.</li>
+<li><strong style="font-weight:700">Ziki can’t verify an outcome.</strong> Say so plainly rather than leaving it looking either confirmed or merely reported.</li>
+<li><strong style="font-weight:700">Ziki contradicts the agent.</strong> The entry reads “Didn’t hold up”, and the task can’t show plain “Done”.</li>
+<li><strong style="font-weight:700">Sensitive evidence.</strong> Who may see which evidence is out of scope here and belongs to the later permissions proposal.</li>
+<li><strong style="font-weight:700">Accessibility and notifications.</strong> Nothing relies on colour alone, reading order matches visual order, and each urgency level has a defined notification behaviour.</li>
+</ul>
+
+<h2 style="margin:36px 0 10px;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-0.01em">8 · Questions for community feedback</h2>
+<ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+<li><strong style="font-weight:700">Placement.</strong> A tab on the task page, a drawer opened from the inbox, or both?</li>
+<li><strong style="font-weight:700">Order.</strong> Newest first, as drawn so the present is on top, or oldest first like a story?</li>
+<li><strong style="font-weight:700">Key moments.</strong> Who decides what counts: the agent, Ziki, or the person by pinning?</li>
+<li><strong style="font-weight:700">Verification.</strong> Which outcomes can Ziki verify today, and what should the label say when it can’t?</li>
+<li><strong style="font-weight:700">“Done” with caveats.</strong> Should a task say “Done” while some results are only reported? Drawn: yes, with visible caveats. Stricter option: “Done, awaiting verification”.</li>
+<li><strong style="font-weight:700">Human confirmation.</strong> Should people be able to mark a result “Confirmed by me”?</li>
+<li><strong style="font-weight:700">Urgency.</strong> Who sets it, and how do we stop agents marking everything urgent?</li>
+<li><strong style="font-weight:700">Notifications.</strong> Which urgency levels should interrupt, and which wait quietly?</li>
+<li><strong style="font-weight:700">Personality.</strong> How much character, such as named agents and friendly wording, feels right for Ziki?</li>
+</ol>
+
+<p style="margin:32px 0 0;padding-top:16px;border-top:1px solid #E3E7EC;font-size:13px;color:#5B6572">Out of scope for this proposal: human-readable permission levels, which will be a separate proposal.</p>
+
+</div>
+
+
+<div aria-hidden="true" style="height:84px"></div>
+<nav aria-label="Walkthrough" style="position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:2px;padding:4px;max-width:calc(100% - 24px);overflow-x:auto;border-radius:14px;background:#14181F;box-shadow:0 8px 24px rgba(20,24,31,0.25);font-family:'Plus Jakarta Sans',system-ui,sans-serif">
+<a href="./" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;background:transparent;color:#D5DAE1">Overview</a>
+<a href="open.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;background:transparent;color:#D5DAE1">1 · Open</a>
+<a href="evidence.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;background:transparent;color:#D5DAE1">2 · Evidence</a>
+<a href="question.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;background:transparent;color:#D5DAE1">3 · Question</a>
+<a href="response.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;background:transparent;color:#D5DAE1">4 · Response</a>
+<a href="complete.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;background:transparent;color:#D5DAE1">5 · Verified</a>
+<a href="states.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;background:transparent;color:#D5DAE1">States</a>
+<a href="proposal.html" aria-current="page" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;background:#4338CA;color:#FFFFFF">Proposal</a>
+</nav>
+</body>
+</html>
