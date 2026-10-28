@@ -4,39 +4,143 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Transparent Agent Activity Timeline · proposal</title>
+<title>Agent Activity Timeline · Ziki</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#F3F5F7}
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFFFFF}
+a:focus-visible{outline:3px solid #4338CA;outline-offset:2px}
 </style>
 </head>
 <body>
-<div style="min-height:100vh;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:15px;line-height:1.6;color:#14181F">
-<header style="display:flex;align-items:center;gap:10px;padding:14px 32px;background:#FFFFFF;border-bottom:1px solid #E3E7EC">
-<div aria-hidden="true" style="width:28px;height:28px;border-radius:9px;background:#4338CA;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px">Z</div>
-<span style="font-weight:700;font-size:17px;letter-spacing:-0.01em">Ziki</span>
-<span style="color:#5B6572;font-size:13px">· proposal prototype</span>
+<div style="font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;color:#14181F">
+
+<header style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;max-width:1120px;margin:0 auto;padding:16px 32px">
+<div style="display:flex;align-items:center;gap:10px">
+<div aria-hidden="true" style="width:30px;height:30px;border-radius:10px;background:#4338CA;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px">Z</div>
+<span style="font-weight:700;font-size:18px;letter-spacing:-0.01em">Ziki</span>
+</div>
+<nav aria-label="Page sections" style="display:flex;gap:4px">
+<a href="#features" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;color:#374151;font-size:14px;font-weight:600;text-decoration:none">Features</a>
+<a href="#how" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;color:#374151;font-size:14px;font-weight:600;text-decoration:none">How it works</a>
+</nav>
 </header>
-<main style="max-width:960px;margin:0 auto;padding:48px 32px 32px">
-<div style="font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#3730A3">Community proposal · Draft for feedback</div>
-<h1 style="margin:6px 0 0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.025em">Transparent Agent Activity Timeline</h1>
-<p style="margin:12px 0 0;max-width:680px;font-size:18px;line-height:1.5;color:#374151">Helping people understand what their agents are doing, step in when it matters, and trust what comes back.</p>
-<div style="margin-top:22px;max-width:720px;padding:14px 18px;border-radius:12px;background:#FEF3C7;border:1px solid #F0D58A;color:#7A3410;font-size:14px;line-height:1.55"><strong style="font-weight:700">Proposal only. Not approved, not implemented.</strong> Made without access to Ziki’s code, docs or design files, so the visuals are stand-ins and every name and figure is sample data.</div>
-<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px">
-<a href="open.html" style="display:inline-flex;align-items:center;min-height:44px;padding:8px 20px;border-radius:10px;background:#4338CA;color:#FFFFFF;font-size:14px;font-weight:700;text-decoration:none">Start the walkthrough</a>
-<a href="proposal.html" style="display:inline-flex;align-items:center;min-height:44px;padding:8px 20px;border-radius:10px;border:1px solid #CBD2DA;background:#FFFFFF;color:#14181F;font-size:14px;font-weight:600;text-decoration:none">Read the proposal</a>
+
+<main>
+
+<section style="background:#F3F5F7">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:48px;max-width:1120px;margin:0 auto;padding:72px 32px 80px">
+<div style="flex:1 1 420px;min-width:0">
+<span style="display:inline-block;padding:3px 12px;border-radius:999px;background:#E0E7FF;color:#3730A3;font-size:13px;font-weight:700">Agent Activity Timeline</span>
+<h1 style="margin:16px 0 0;font-size:clamp(34px, 5vw, 54px);line-height:1.1;font-weight:700;letter-spacing:-0.03em">See what your agents are doing. Know what you can trust.</h1>
+<p style="margin:18px 0 0;max-width:520px;font-size:18px;line-height:1.6;color:#374151">A plain-language timeline of everything an agent does on a task, with every result marked as verified by Ziki or reported by the agent.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
+<a href="#how" style="display:inline-flex;align-items:center;min-height:48px;padding:10px 24px;border-radius:12px;background:#4338CA;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none">How it works</a>
+<a href="#features" style="display:inline-flex;align-items:center;min-height:48px;padding:10px 24px;border-radius:12px;border:1px solid #CBD2DA;background:#FFFFFF;color:#14181F;font-size:15px;font-weight:600;text-decoration:none">See the features</a>
 </div>
-<h2 style="margin:44px 0 14px;font-size:20px;font-weight:700;letter-spacing:-0.01em">What’s here</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:14px">
-<a href="open.html" style="display:flex;gap:14px;align-items:flex-start;min-height:44px;padding:16px 18px;border-radius:14px;background:#FFFFFF;border:1px solid #E3E7EC;text-decoration:none;color:#14181F"><span aria-hidden="true" style="flex:0 0 32px;width:32px;height:32px;border-radius:10px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">1</span><span><span style="display:block;font-size:15px;font-weight:700;line-height:1.4">Open the timeline</span><span style="display:block;font-size:13px;color:#5B6572;line-height:1.5">See what the agent is doing right now, and what is already confirmed.</span></span></a>
-<a href="evidence.html" style="display:flex;gap:14px;align-items:flex-start;min-height:44px;padding:16px 18px;border-radius:14px;background:#FFFFFF;border:1px solid #E3E7EC;text-decoration:none;color:#14181F"><span aria-hidden="true" style="flex:0 0 32px;width:32px;height:32px;border-radius:10px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">2</span><span><span style="display:block;font-size:15px;font-weight:700;line-height:1.4">Inspect the evidence</span><span style="display:block;font-size:13px;color:#5B6572;line-height:1.5">Findings, a chart and a verified-versus-reported ledger.</span></span></a>
-<a href="question.html" style="display:flex;gap:14px;align-items:flex-start;min-height:44px;padding:16px 18px;border-radius:14px;background:#FFFFFF;border:1px solid #E3E7EC;text-decoration:none;color:#14181F"><span aria-hidden="true" style="flex:0 0 32px;width:32px;height:32px;border-radius:10px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">3</span><span><span style="display:block;font-size:15px;font-weight:700;line-height:1.4">The agent asks</span><span style="display:block;font-size:13px;color:#5B6572;line-height:1.5">A decision card with the reason, urgency and a before-and-after preview.</span></span></a>
-<a href="response.html" style="display:flex;gap:14px;align-items:flex-start;min-height:44px;padding:16px 18px;border-radius:14px;background:#FFFFFF;border:1px solid #E3E7EC;text-decoration:none;color:#14181F"><span aria-hidden="true" style="flex:0 0 32px;width:32px;height:32px;border-radius:10px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">4</span><span><span style="display:block;font-size:15px;font-weight:700;line-height:1.4">You approve, the agent continues</span><span style="display:block;font-size:13px;color:#5B6572;line-height:1.5">Your answer and the agent’s next steps in one stream.</span></span></a>
-<a href="complete.html" style="display:flex;gap:14px;align-items:flex-start;min-height:44px;padding:16px 18px;border-radius:14px;background:#FFFFFF;border:1px solid #E3E7EC;text-decoration:none;color:#14181F"><span aria-hidden="true" style="flex:0 0 32px;width:32px;height:32px;border-radius:10px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">5</span><span><span style="display:block;font-size:15px;font-weight:700;line-height:1.4">Reported done, verified</span><span style="display:block;font-size:13px;color:#5B6572;line-height:1.5">The agent’s report beside Ziki’s verification, plus open items.</span></span></a>
-<a href="states.html" style="display:flex;gap:14px;align-items:flex-start;min-height:44px;padding:16px 18px;border-radius:14px;background:#FFFFFF;border:1px solid #E3E7EC;text-decoration:none;color:#14181F"><span aria-hidden="true" style="flex:0 0 32px;width:32px;height:32px;border-radius:10px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">·</span><span><span style="display:block;font-size:15px;font-weight:700;line-height:1.4">Component states</span><span style="display:block;font-size:13px;color:#5B6572;line-height:1.5">Every status, trust label and question state, including rejection.</span></span></a>
-<a href="proposal.html" style="display:flex;gap:14px;align-items:flex-start;min-height:44px;padding:16px 18px;border-radius:14px;background:#FFFFFF;border:1px solid #E3E7EC;text-decoration:none;color:#14181F"><span aria-hidden="true" style="flex:0 0 32px;width:32px;height:32px;border-radius:10px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">·</span><span><span style="display:block;font-size:15px;font-weight:700;line-height:1.4">Community proposal</span><span style="display:block;font-size:13px;color:#5B6572;line-height:1.5">Problem, solution, edge cases and questions for feedback.</span></span></a>
 </div>
+
+<figure aria-label="Example of the activity timeline" style="flex:1 1 380px;min-width:0;margin:0;padding:20px;border-radius:20px;background:#FFFFFF;border:1px solid #E3E7EC;box-shadow:0 16px 40px rgba(20,24,31,0.08)">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+<span style="font-size:16px;font-weight:700">Activity</span>
+<span style="display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:999px;background:#FFFFFF;border:1px solid #D5DAE1;color:#374151;font-size:12px;font-weight:600;line-height:18px"><span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:#4338CA"></span>Live</span>
+</div>
+
+<div style="display:flex;gap:12px;padding:14px;border-radius:14px;background:#FFFBEB;border:1.5px solid #B45309">
+<span style="flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:#B45309;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 15.5H3L12 4z"/><path d="M12 10v4.5M12 17.5v.01"/></svg></span>
+<div style="min-width:0">
+<div style="font-size:15px;font-weight:600;line-height:1.4">Change the sender address on your live form?</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+<span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;background:#FEF3C7;border:1px solid #F0D58A;color:#92400E;font-size:12px;font-weight:600;line-height:18px">Needs you</span>
+<span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;background:#92400E;color:#FFFFFF;font-size:12px;font-weight:600;line-height:20px">Needed today</span>
+</div>
+</div>
+</div>
+
+<div style="display:flex;gap:12px;padding:14px;margin-top:10px;border-radius:14px;background:#FFFFFF;border:1px solid #E3E7EC">
+<span style="flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:#E3E7EC;color:#14181F;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-1.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span>
+<div style="min-width:0">
+<div style="font-size:15px;font-weight:600;line-height:1.4">Proposed a fix: send from a verified address</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+<span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;background:#EDEFF2;color:#374151;font-size:12px;font-weight:600;line-height:20px">Done</span>
+<span style="display:inline-flex;align-items:center;gap:6px;padding:1px 10px;border-radius:999px;border:1px dashed #64748B;background:#FFFFFF;color:#475569;font-size:12px;font-weight:600;line-height:20px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke-dasharray="3 3.2"/></svg>Reported by agent</span>
+</div>
+</div>
+</div>
+
+<div style="display:flex;gap:12px;padding:14px;margin-top:10px;border-radius:14px;background:#FFFFFF;border:1px solid #E3E7EC">
+<span style="flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:#E3E7EC;color:#14181F;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></span>
+<div style="min-width:0">
+<div style="font-size:15px;font-weight:600;line-height:1.4">Compared 3 weeks of requests with deliveries</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+<span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;background:#EDEFF2;color:#374151;font-size:12px;font-weight:600;line-height:20px">Done</span>
+<span style="display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:999px;background:#DCFCE7;color:#166534;font-size:12px;font-weight:600;line-height:20px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 2.8v5.6c0 4.4-2.9 7.7-7 9.6-4.1-1.9-7-5.2-7-9.6V5.8L12 3z"/><path d="M8.8 12.2l2.2 2.2 4.2-4.4"/></svg>Verified by Ziki</span>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</section>
+
+<section id="features" style="max-width:1120px;margin:0 auto;padding:80px 32px 24px">
+<h2 style="margin:0;font-size:clamp(26px, 3.5vw, 36px);line-height:1.2;font-weight:700;letter-spacing:-0.02em">Everything an agent does, in one place</h2>
+<p style="margin:10px 0 0;max-width:600px;color:#374151">Built for people who aren’t developers, so you can follow the work and stay in control without reading a log.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:20px;margin-top:32px">
+<div style="padding:24px;border-radius:16px;background:#F3F5F7">
+<div aria-hidden="true" style="width:40px;height:40px;border-radius:12px;background:#E0E7FF;color:#3730A3;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div>
+<h3 style="margin:16px 0 6px;font-size:18px;line-height:1.3;font-weight:700">Follow along in plain language</h3>
+<p style="margin:0;color:#374151;font-size:15px">See what an agent is doing right now, what it found and what it changed, without reading a single log.</p>
+</div>
+<div style="padding:24px;border-radius:16px;background:#F3F5F7">
+<div aria-hidden="true" style="width:40px;height:40px;border-radius:12px;background:#DCFCE7;color:#166534;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.8v5.6c0 4.4-2.9 7.7-7 9.6-4.1-1.9-7-5.2-7-9.6V5.8L12 3z"/><path d="M8.8 12.2l2.2 2.2 4.2-4.4"/></svg></div>
+<h3 style="margin:16px 0 6px;font-size:18px;line-height:1.3;font-weight:700">Verified or reported, never blurred</h3>
+<p style="margin:0;color:#374151;font-size:15px">Every result says who confirmed it. Verified by Ziki means Ziki checked it. Reported means only the agent says so.</p>
+</div>
+<div style="padding:24px;border-radius:16px;background:#F3F5F7">
+<div aria-hidden="true" style="width:40px;height:40px;border-radius:12px;background:#FEF3C7;color:#92400E;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16V16H9.5L5 20v-4H4z"/></svg></div>
+<h3 style="margin:16px 0 6px;font-size:18px;line-height:1.3;font-weight:700">Decide with the full picture</h3>
+<p style="margin:0;color:#374151;font-size:15px">When an agent needs you, it shows the decision, the reason, the urgency and what will change. Approve, reject or ask back.</p>
+</div>
+<div style="padding:24px;border-radius:16px;background:#F3F5F7">
+<div aria-hidden="true" style="width:40px;height:40px;border-radius:12px;background:#EDEFF2;color:#14181F;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M14 3.5V8h4"/></svg></div>
+<h3 style="margin:16px 0 6px;font-size:18px;line-height:1.3;font-weight:700">Finish with proof</h3>
+<p style="margin:0;color:#374151;font-size:15px">Done comes with what was reported, what was verified, what is still open and the evidence behind it.</p>
+</div>
+</div>
+</section>
+
+<section id="how" style="max-width:1120px;margin:0 auto;padding:72px 32px 88px">
+<h2 style="margin:0;font-size:clamp(26px, 3.5vw, 36px);line-height:1.2;font-weight:700;letter-spacing:-0.02em">How it works</h2>
+<ol style="list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:28px">
+<li>
+<div aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#4338CA;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">1</div>
+<h3 style="margin:14px 0 4px;font-size:17px;line-height:1.3;font-weight:700">Open the timeline</h3>
+<p style="margin:0;color:#374151;font-size:15px">Every task has one, in the order things happened, with the current step highlighted.</p>
+</li>
+<li>
+<div aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#4338CA;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">2</div>
+<h3 style="margin:14px 0 4px;font-size:17px;line-height:1.3;font-weight:700">Look closer</h3>
+<p style="margin:0;color:#374151;font-size:15px">Expand any step for findings, evidence links and check results. Technical detail stays one click away.</p>
+</li>
+<li>
+<div aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#4338CA;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">3</div>
+<h3 style="margin:14px 0 4px;font-size:17px;line-height:1.3;font-weight:700">Respond when asked</h3>
+<p style="margin:0;color:#374151;font-size:15px">Approve, reject or add a note. Your answer and the agent’s next steps land in the same timeline.</p>
+</li>
+<li>
+<div aria-hidden="true" style="width:36px;height:36px;border-radius:50%;background:#4338CA;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">4</div>
+<h3 style="margin:14px 0 4px;font-size:17px;line-height:1.3;font-weight:700">Check the outcome</h3>
+<p style="margin:0;color:#374151;font-size:15px">Ziki’s verification sits beside the agent’s report, so you can see what is confirmed.</p>
+</li>
+</ol>
+</section>
+
 </main>
+
+<footer style="border-top:1px solid #E3E7EC">
+<div style="max-width:1120px;margin:0 auto;padding:24px 32px 32px;font-size:13px;color:#5B6572">Concept design for Ziki. Sample content shown. Not an official Ziki release.</div>
+</footer>
+
 </div>
 </body>
 </html>
