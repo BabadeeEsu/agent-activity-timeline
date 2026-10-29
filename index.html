@@ -4,186 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Agent Work Recovery · Concept for Ziki</title>
-<meta name="description" content="A concept for how work continues when one agent hands a task to another.">
+<title>Agent Work Recovery · Interactive demo for Ziki</title>
+<meta name="description" content="A clickable proposal demo: how work continues when one agent hands a task to another. Simulated, with example data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
-<style>
-  /* Ziki's own tokens (--zk-*) with the values Ziki publishes as fallbacks, so this looks the same on its own
-     and inherits the real theme if it is ever placed inside Ziki. */
-  :root {
-    --bg: var(--zk-bg, #f5f7fc);
-    --surface: var(--zk-surface, #ffffff);
-    --text: var(--zk-text, #15121f);
-    --text2: var(--zk-text2, #3e4a63);
-    --muted: var(--zk-muted, #5f6577);
-    --border: var(--zk-border, #e3e8f2);
-    --divider: var(--zk-divider, #eef1f7);
-    --tint: var(--zk-tint, #eaf2fe);
-    --chip: var(--zk-chip, #f0f2f7);
-    --accent: var(--zk-accent, #1f5fd9);
-    --ok: var(--zk-ok-fg, #146c43);
-    --ok-bg: var(--zk-ok-bg, #e3f6ec);
-    --warn: var(--zk-warn-fg, #7a4e00);
-    --warn-bg: var(--zk-warn-bg, #fdf3d7);
-    --info: var(--zk-info-fg, #1d4fb8);
-    --info-bg: var(--zk-info-bg, #e7f0ff);
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 15px/1.5 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3, p, ul { margin: 0; }
-  h1, h2, h3 { font-family: 'Manrope', 'DM Sans', system-ui, sans-serif; }
-
-  .wrap { max-width: 1060px; margin: 0 auto; padding: 36px 20px 40px; }
-
-  /* ---- heading ---- */
-  .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: var(--muted); font-weight: 600; font-size: 14px; }
-  .badge { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 999px; background: var(--info-bg); color: var(--info); font-size: 12px; font-weight: 700; line-height: 20px; white-space: nowrap; }
-  .badge.warn { background: var(--warn-bg); color: var(--warn); }
-  h1 { max-width: 20em; font-size: clamp(24px, 4.2vw, 34px); line-height: 1.18; font-weight: 800; letter-spacing: -0.025em; }
-  .lede { margin-top: 8px; color: var(--text2); font-size: 16px; }
-
-  /* ---- three actions ---- */
-  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
-  .card { display: flex; flex-direction: column; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
-  .icon { display: grid; place-items: center; width: 38px; height: 38px; margin-bottom: 12px; border-radius: 50%; background: var(--tint); color: var(--accent); }
-  .icon svg, .arrow { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .card h2 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
-  .card p.what { margin-top: 4px; color: var(--text2); }
-
-  /* The small illustration at the bottom of each card. Everything inside is an example, not a control. */
-  .mini { display: flex; flex-direction: column; justify-content: center; min-height: 92px; margin-top: auto; padding: 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--divider); }
-  .card .what { margin-bottom: 16px; }
-  .mini-line { color: var(--text2); font-size: 13.5px; }
-  .mini-line b { color: var(--text); font-weight: 600; }
-  .row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 5px 14px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); font-size: 13.5px; font-weight: 600; line-height: 20px; }
-  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-
-  .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
-  .agent { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 13.5px; font-weight: 600; line-height: 20px; white-space: nowrap; }
-  .agent.stopped { background: var(--chip); color: var(--muted); }
-  .agent.go { background: var(--tint); color: var(--accent); }
-  .arrow { color: var(--muted); flex: none; }
-
-  /* ---- what the next agent receives ---- */
-  .example { margin-top: 16px; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
-  .ex-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
-  .ex-head h2 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
-  .brief { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
-  .brief section { padding: 12px 14px; border-radius: 10px; background: var(--bg); border: 1px solid var(--divider); }
-  .brief h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 13.5px; font-weight: 700; }
-  .brief h3::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--dot); flex: none; }
-  .brief ul { padding-left: 16px; color: var(--text2); font-size: 14px; }
-  .brief li + li { margin-top: 2px; }
-  .done { --dot: var(--ok); }
-  .todo { --dot: var(--accent); }
-  .ctx { --dot: var(--muted); }
-  .next { --dot: var(--warn); }
-  .foot { margin-top: 12px; color: var(--text2); font-size: 14px; }
-
-  .note { margin-top: 16px; color: var(--muted); font-size: 13px; text-align: center; }
-
-  @media (max-width: 980px) {
-    .brief { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  @media (max-width: 860px) {
-    .cards { grid-template-columns: minmax(0, 1fr); }
-    .card .what { margin-bottom: 14px; }
-  }
-  @media (max-width: 560px) {
-    .wrap { padding: 24px 16px 32px; }
-    .brief { grid-template-columns: minmax(0, 1fr); }
-    .card, .example { padding: 16px; }
-    .sfx { display: none; } /* keep "Agent A → Agent B" on one line on phones */
-    .mini { min-height: 0; }
-  }
-</style>
+<link rel="stylesheet" href="assets/demo.css">
 </head>
 <body>
-<main class="wrap">
-  <section aria-labelledby="title">
-    <header>
-      <p class="eyebrow"><span class="badge">Concept</span> Agent Work Recovery</p>
-      <h1 id="title">When an agent can’t finish, the next one picks up where it stopped.</h1>
-      <p class="lede">Three simple ways to keep work moving, with a person in control.</p>
-    </header>
+<header class="top">
+  <a class="brand" href="#/" data-key="brand" aria-label="ziki, demo home">ziki</a>
+  <span class="badge">Interactive demo</span>
+  <span class="crumb">Shop Checkout · Tasks</span>
+  <span class="spacer"></span>
+  <button class="btn quiet" type="button" data-action="about" data-key="about">About</button>
+  <button class="btn" type="button" data-action="reset" data-key="reset">Reset demo</button>
+</header>
+<p class="strip">Simulated demo with example data. Nothing here is connected to Ziki. Open each task to try a different part of Agent Work Recovery.</p>
 
-    <div class="cards">
-      <article class="card">
-        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-        <h2>Human-approved handover</h2>
-        <p class="what">An agent proposes handing off its task. A person reviews it and approves or rejects.</p>
-        <div class="mini" aria-label="Example">
-          <p class="mini-line"><b>Agent A</b> proposes a handover</p>
-          <div class="row"><span class="btn primary">Approve</span><span class="btn">Reject</span></div>
-        </div>
-      </article>
+<div id="app" class="app" data-view="both"></div>
 
-      <article class="card">
-        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h13m0 0l-3-3m3 3l-3 3M20 16H7m0 0l3-3m-3 3l3 3"/></svg></div>
-        <h2>Agent handover</h2>
-        <p class="what">The task and its progress pass to another agent, which continues from where the first one stopped.</p>
-        <div class="mini" aria-label="Example">
-          <div class="flow">
-            <span class="agent stopped">Agent A</span>
-            <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-5-5m5 5l-5 5"/></svg>
-            <span class="agent go">Agent B</span>
-          </div>
-          <p class="mini-line" style="margin-top:8px">with a handover brief</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v4.5h-4.5"/></svg></div>
-        <h2>Recover a stalled task</h2>
-        <p class="what">When a task looks stuck, a person can recover it or start a handover.</p>
-        <div class="mini" aria-label="Example">
-          <p class="mini-line"><span class="badge warn">No update for 3 hours</span></p>
-          <div class="row"><span class="btn primary">Recover</span><span class="btn">Hand over</span></div>
-        </div>
-      </article>
-    </div>
-
-    <div class="example" aria-labelledby="ex-title">
-      <div class="ex-head">
-        <h2 id="ex-title">What the next agent receives</h2>
-        <div class="flow" aria-label="From Agent A to Agent B">
-          <span class="agent stopped">Agent A<span class="sfx">· stopped</span></span>
-          <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-5-5m5 5l-5 5"/></svg>
-          <span class="agent go">Agent B<span class="sfx">· continues</span></span>
-        </div>
-      </div>
-      <div class="brief">
-        <section class="done">
-          <h3>Work completed</h3>
-          <ul><li>Rounding helper written</li><li>12 tests passing</li><li>Pull request opened</li></ul>
-        </section>
-        <section class="todo">
-          <h3>Work remaining</h3>
-          <ul><li>Use the helper in checkout</li><li>Update the cart total</li></ul>
-        </section>
-        <section class="ctx">
-          <h3>Relevant context</h3>
-          <ul><li>Branch: fix/rounding</li><li>Tax rounds per line, not per order</li></ul>
-        </section>
-        <section class="next">
-          <h3>Recommended next steps</h3>
-          <ul><li>Start in the cart code</li><li>Run the checkout tests</li></ul>
-        </section>
-      </div>
-      <p class="foot">The brief is saved with the task, so nothing is lost. Agent B checks the current state first, then continues.</p>
-    </div>
-
-    <p class="note">Concept for discussion. The buttons and the example are illustrations, not a working feature.</p>
-  </section>
-</main>
+<dialog id="dlg" class="dlg" aria-labelledby="dlg-title"></dialog>
+<div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+<noscript><p class="strip">This demo needs JavaScript.</p></noscript>
+<script src="assets/demo.js"></script>
 </body>
 </html>

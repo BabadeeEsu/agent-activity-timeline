@@ -1,0 +1,9 @@
+{
+  "name": "agent-work-recovery-demo",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Interactive, simulated proposal demo for Agent Work Recovery. Static files only; no dependencies.",
+  "scripts": {
+    "test": "node test/e2e.mjs"
+  }
+}
