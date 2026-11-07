@@ -4,39 +4,92 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Pinned issue and deadline countdown · Interactive demo for Ziki</title>
-<meta name="description" content="A clickable proposal demo: the issue that needs a human decision is pinned at the top of In Progress, with a colour countdown instead of numbers. Simulated, with example data.">
+<title>Pinned issue countdown · Interactive demo for Ziki</title>
+<meta name="description" content="A proposal demo: the pinned “Your issues” box on Ziki's In Progress tab gets a colour countdown instead of a numeric timer. Simulated.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/demo.css">
 </head>
 <body>
 <div class="demo" role="region" aria-label="Demo controls">
-  <span><strong>Interactive demo</strong> · Example data. Nothing here is connected to Ziki.</span>
-  <span class="grow"></span>
-  <div class="demo-ctl" role="group" aria-label="Preview urgency">
-    <span>Preview urgency:</span>
+  <span class="demo-text"><strong>Interactive demo</strong><span class="long"> · Only the countdown in the pinned box is new. Nothing here is connected to Ziki.</span><span class="short"> · Not connected to Ziki</span></span>
+  <div class="demo-ctl" role="group" aria-label="Preview the countdown">
+    <button class="dbtn play" type="button" data-action="play" aria-pressed="false">▶ Play countdown</button>
+    <span class="sep" aria-hidden="true"></span>
     <button class="dbtn" type="button" data-action="preview" data-level="live" aria-pressed="true">Real time</button>
     <button class="dbtn" type="button" data-action="preview" data-level="green" aria-pressed="false">Green</button>
     <button class="dbtn" type="button" data-action="preview" data-level="yellow" aria-pressed="false">Yellow</button>
     <button class="dbtn" type="button" data-action="preview" data-level="orange" aria-pressed="false">Orange</button>
     <button class="dbtn" type="button" data-action="preview" data-level="red" aria-pressed="false">Red</button>
     <button class="dbtn" type="button" data-action="preview" data-level="overdue" aria-pressed="false">Overdue</button>
+    <span class="sep" aria-hidden="true"></span>
+    <button class="dbtn" type="button" data-action="about">About</button>
+    <button class="dbtn" type="button" data-action="reset">Reset</button>
   </div>
-  <button class="dbtn" type="button" data-action="about">About</button>
-  <button class="dbtn" type="button" data-action="reset">Reset demo</button>
 </div>
 
 <header class="zk-top">
-  <a class="zk-logo" href="#/issues/in-progress" aria-label="Ziki, back to In progress">Z</a>
-  <span class="zk-org"><span class="sq" aria-hidden="true">Z</span>Zedu</span>
-  <span class="zk-tracks" aria-label="Tracks"><span class="on">Your App</span><span>Marketing</span><span>Security</span></span>
+  <span class="zk-logo" aria-label="Ziki">Z</span>
+  <span class="zk-org"><span class="sq" aria-hidden="true">Z</span>Zedu <span class="caret" aria-hidden="true">⌄</span></span>
+  <nav class="zk-tracks" aria-label="Tracks">
+    <span class="on">◎ Your App</span><span>◁ Marketing</span><span>⛉ Security</span>
+  </nav>
   <span class="grow"></span>
-  <span class="zk-user"><span class="avatar sm you" aria-hidden="true">Y</span><span class="name">You</span></span>
+  <span class="zk-user"><span class="avatar you" aria-hidden="true">Y</span><span class="name">You</span><span class="caret" aria-hidden="true">⌄</span></span>
+  <span class="zk-mail" aria-hidden="true">✉</span>
 </header>
 
-<main id="app" class="wrap"></main>
+<main class="wrap">
+  <nav class="tabs" aria-label="Issue stages">
+    <span class="tab"><span>Ideas <span class="n">71</span></span><span class="dot"></span></span>
+    <span class="tab on" aria-current="page"><span>In Progress <span class="n">1128</span></span><span class="dot"></span></span>
+    <span class="tab"><span>Delivered <span class="n">571</span></span><span class="dot"></span></span>
+  </nav>
+
+  <section class="card">
+    <div class="toolbar">
+      <span class="tool">+ Add Idea</span>
+      <span class="grow"></span>
+      <span class="tool">⏷ Filter ⌄</span>
+      <span class="tool icon" aria-label="Search">⌕</span>
+    </div>
+    <div class="board">
+      <ul class="rail" aria-label="Status">
+        <li class="on"><span class="cnt">1110</span><span>Open</span></li>
+        <li><span class="cnt">4</span><span>In progress</span></li>
+        <li><span class="cnt">14</span><span>Closed</span></li>
+        <li><span class="cnt">85</span><span>Possibly delivered</span></li>
+      </ul>
+      <div class="main">
+        <div id="pinned"></div>
+        <div class="table" role="table" aria-label="Open issues">
+          <div class="thead" role="row"><span role="columnheader">Bids</span><span role="columnheader">Issue</span><span role="columnheader">Status</span><span role="columnheader">Importance</span><span role="columnheader"><span class="sr">Assignee</span></span></div>
+          <div class="row" role="row">
+            <span class="bids" role="cell"><b>0</b>BIDS</span>
+            <span class="issue" role="cell"><span class="t">Bug: Kebab menu ("More options") in DM header is unresponsive on mobile</span><span class="sub">#2 · 8 comments · 14 mins ago</span></span>
+            <span class="status" role="cell">Ready for bids</span><span class="imp" role="cell">44</span><span role="cell"><span class="avatar">A</span></span>
+          </div>
+          <div class="row" role="row">
+            <span class="bids" role="cell"><b>0</b>BIDS</span>
+            <span class="issue" role="cell"><span class="t">[Design] Hero avatar row under "Join 10,000+ students" doesn't line up</span><span class="sub">#7 · 5 comments · yesterday</span></span>
+            <span class="status" role="cell">Ready for bids</span><span class="imp" role="cell">38</span><span role="cell"><span class="avatar">M</span></span>
+          </div>
+          <div class="row" role="row">
+            <span class="bids" role="cell"><b>0</b>BIDS</span>
+            <span class="issue" role="cell"><span class="t">Signing Out of Workspace and Deleting Organization Both Show Leave Confirmation</span><span class="sub">#90 · 2 comments · Web · 34 mins ago</span></span>
+            <span class="status" role="cell">Ready for bids</span><span class="imp" role="cell">37</span><span role="cell"><span class="avatar">B</span></span>
+          </div>
+          <div class="row" role="row">
+            <span class="bids" role="cell"><b>0</b>BIDS</span>
+            <span class="issue" role="cell"><span class="t">Footer Facebook icon links to a broken URL</span><span class="sub">#148 · 1 comment · Web · yesterday</span></span>
+            <span class="status" role="cell">Ready for bids</span><span class="imp" role="cell">34</span><span role="cell"><span class="avatar">OC</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <dialog id="dlg" class="dlg" aria-labelledby="dlg-title"></dialog>
 <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
