@@ -4,29 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Agent Work Recovery · Interactive demo for Ziki</title>
-<meta name="description" content="A clickable proposal demo: how work continues when one agent hands a task to another. Simulated, with example data.">
+<title>Pinned issue and deadline countdown · Interactive demo for Ziki</title>
+<meta name="description" content="A clickable proposal demo: the issue that needs a human decision is pinned at the top of In Progress, with a colour countdown instead of numbers. Simulated, with example data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/demo.css">
 </head>
 <body>
-<header class="top">
-  <a class="brand" href="#/" data-key="brand" aria-label="ziki, demo home">ziki</a>
-  <span class="badge">Interactive demo</span>
-  <span class="crumb">Shop Checkout · Tasks</span>
-  <span class="spacer"></span>
-  <button class="btn quiet" type="button" data-action="about" data-key="about">About</button>
-  <button class="btn" type="button" data-action="reset" data-key="reset">Reset demo</button>
-</header>
-<p class="strip">Simulated demo with example data. Nothing here is connected to Ziki. Open each task to try a different part of Agent Work Recovery.</p>
+<div class="demo" role="region" aria-label="Demo controls">
+  <span><strong>Interactive demo</strong> · Example data. Nothing here is connected to Ziki.</span>
+  <span class="grow"></span>
+  <div class="demo-ctl" role="group" aria-label="Preview urgency">
+    <span>Preview urgency:</span>
+    <button class="dbtn" type="button" data-action="preview" data-level="live" aria-pressed="true">Real time</button>
+    <button class="dbtn" type="button" data-action="preview" data-level="green" aria-pressed="false">Green</button>
+    <button class="dbtn" type="button" data-action="preview" data-level="yellow" aria-pressed="false">Yellow</button>
+    <button class="dbtn" type="button" data-action="preview" data-level="orange" aria-pressed="false">Orange</button>
+    <button class="dbtn" type="button" data-action="preview" data-level="red" aria-pressed="false">Red</button>
+    <button class="dbtn" type="button" data-action="preview" data-level="overdue" aria-pressed="false">Overdue</button>
+  </div>
+  <button class="dbtn" type="button" data-action="about">About</button>
+  <button class="dbtn" type="button" data-action="reset">Reset demo</button>
+</div>
 
-<div id="app" class="app" data-view="both"></div>
+<header class="zk-top">
+  <a class="zk-logo" href="#/issues/in-progress" aria-label="Ziki, back to In progress">Z</a>
+  <span class="zk-org"><span class="sq" aria-hidden="true">Z</span>Zedu</span>
+  <span class="zk-tracks" aria-label="Tracks"><span class="on">Your App</span><span>Marketing</span><span>Security</span></span>
+  <span class="grow"></span>
+  <span class="zk-user"><span class="avatar sm you" aria-hidden="true">Y</span><span class="name">You</span></span>
+</header>
+
+<main id="app" class="wrap"></main>
 
 <dialog id="dlg" class="dlg" aria-labelledby="dlg-title"></dialog>
 <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
-<noscript><p class="strip">This demo needs JavaScript.</p></noscript>
+<noscript><p class="wrap">This demo needs JavaScript.</p></noscript>
 <script src="assets/demo.js"></script>
 </body>
 </html>
